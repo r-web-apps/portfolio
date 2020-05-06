@@ -1,0 +1,11 @@
+<div class="ui top fixed menu">
+  <div>
+    <a class="item header" href="<%= root_path %>"><%= image_tag 'R.png', style: 'margin-right: 0.5em;' %> My Portfolio</a>
+  </div>
+  <a class="item"></a>
+  <% if user_signed_in? %>
+    <div class="right red ui menu inverted">
+      <%= link_to 'Logout', destroy_user_session_path, class: 'item', method: :delete %>
+    </div>
+  <% end %>
+</div>
