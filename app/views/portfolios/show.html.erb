@@ -1,11 +1,32 @@
-<h1>Portfolio item page</h1>
+<h1 class="ui top attached header">
+  <%= image_tag @portfolio.icon.url, height: 30, class: 'ui image' if @portfolio.icon? %>
+  <div class="content">
+    <%= @portfolio.title %>
+  </div>
+</h1>
 
-Name: <%= @portfolio.title %>
-Icon: <%= image_tag @portfolio.icon.url, height: 30 if @portfolio.icon? %>
-Cover: <%= image_tag @portfolio.picture.url, height: 100 if @portfolio.picture? %>
-Body: <%= @portfolio.body %>
+<div class="ui attached segment">
+  <%= image_tag @portfolio.picture.url, height: 100, class: 'ui rounded fluid image' if @portfolio.picture? %>
+</div>
+
+<div class="ui attached segment">
+  <h2 class="header">Some information</h2>
+  <%= @portfolio.body %>
+  <h3>Project-Link</h3>
+  <%= link_to @portfolio.link_name, @portfolio.link_href, class: 'ui button primary fluid' if @portfolio.link_href %>
+</div>
+
+<div class="ui <%= 'bottom' unless user_signed_in? %> attached segment">
+  <div class="content">
+    <h2>Comments</h2>
+    <%= render 'comments/feed', comments: @portfolio.comments %>
+  </div>
+</div>
 
 <% if user_signed_in? %>
-  <%= link_to 'Edit', edit_portfolio_path(@portfolio), method: :get, class: 'ui fluid button orange' %>
-  <%= link_to 'Delete', @portfolio, method: :delete, class: 'ui fluid button red' %>
+  <div class="ui bottom attached header">
+    <h2 class="header">Admin panel</h2>
+    <%= link_to 'Edit', edit_portfolio_path(@portfolio), method: :get, class: 'ui fluid button orange' %>
+    <%= link_to 'Delete', @portfolio, method: :delete, class: 'ui fluid button red' %>
+  </div>
 <% end %>

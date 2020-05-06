@@ -1,0 +1,26 @@
+<div class="ui feed">
+  <% comments.each do |comment| %>
+    <div class="event">
+      <div class="label">
+      </div>
+      <div class="content">
+        <div class="summary">
+          <span style="color: orange;">Joe Henderson</span> commented
+          <div class="date">
+            3 days ago
+          </div>
+        </div>
+        <div class="extra text">
+          <%= comment.body %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <%= form_for @comment do |f| %>
+    <div class="ui action input fluid">
+      <%= f.text_field :body, placeholder: "Enter your comment", type: 'text' %>
+      <%= f.button "Send", class: 'ui button orange' %>
+      <%= f.hidden_field :portfolio_id %>
+    </div>
+  <% end %>
+</div>

@@ -1,3 +1,3 @@
 class Comment < ApplicationRecord
-  belongs_to :portfolios
+  belongs_to :portfolio
 end

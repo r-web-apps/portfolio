@@ -4,10 +4,10 @@
       <div class="right floated meta">
         <%= portfolio.date %>
       </div>
-      <%= image_tag portfolio.icon.url, class: 'ui avatar image' %>
+      <%= image_tag portfolio.icon.url, class: 'ui avatar image' if portfolio.icon? %>
     </div>
     <div class="image">
-      <%= image_tag portfolio.picture.url %>
+      <%= image_tag portfolio.picture.url if portfolio.picture? %>
     </div>
     <div class="content no-link">
       <%= portfolio.body.truncate_words(20) %>

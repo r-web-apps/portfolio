@@ -1,0 +1,44 @@
+<%= form_for @portfolio, html: {multipart: true} do |f| %>
+  <div class="ui form">
+    <div class="two fields">
+      <div class="field">
+        <%= f.label :title %>
+        <%= f.text_field :title, placeholder: 'Title' %>
+      </div>
+      <div class="field two fields">
+        <div class="field">
+          <%= f.label :year %>
+          <%= f.number_field :year, placeholder: 'Year' %>
+        </div>
+        <div class="field">
+          <%= f.label :month %>
+          <%= f.number_field :month, placeholder: 'Month' %>
+        </div>
+      </div>
+    </div>
+    <div class="field">
+      <%= f.label :body, 'Content' %>
+      <%= f.text_area :body %>
+    </div>
+    <div class="two fields">
+      <div class="field">
+        <%= f.label :link_name %>
+        <%= f.text_field :link_name, placeholder: 'Link name' %>
+      </div>
+      <div class="field">
+        <%= f.label :link_href %>
+        <%= f.text_field :link_href, placeholder: 'Link href' %>
+      </div>
+    </div>
+    <div class="field">
+      <label>Icon image <%= image_tag @portfolio.icon.url, class: 'ui mini spaced image' if @portfolio.icon? %></label>
+      <%= f.file_field :icon, accept: 'image/jpeg,image/png', class: 'field' %>
+    </div>
+    <div class="field">
+      <label>Cover image <%= image_tag @portfolio.picture.url, class: 'ui mini spaced image' if @portfolio.picture? %></label>
+      <%= f.file_field :picture, accept: 'image/jpeg,image/png', class: 'field' %>
+    </div>
+
+    <%= f.submit class: 'ui button positive fluid' %>
+  </div>
+<% end %>

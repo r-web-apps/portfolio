@@ -1,18 +1,26 @@
 class PortfoliosController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
-  before_action :set_portfolio, only: [:show, :destroy]
+  before_action :set_portfolio, only: [:show, :destroy, :edit, :update]
 
   def index
     redirect_to root_path
   end
 
   def show
+    @comment = Comment.new portfolio_id: @portfolio.id
   end
 
   def edit
   end
 
   def update
+    if @portfolio.update portfolio_params
+      flash[:success] = "Portfolio updated successfully!"
+      redirect_to @portfolio
+    else
+      flash.now[:error] = "Item not saved. Please check your input."
+      render 'edit'
+    end
   end
 
   def destroy
@@ -50,5 +58,5 @@ end
 private
 
 def portfolio_params
-  params.require(:portfolio).permit(:title, :body, :picture, :icon, :likes, :year, :month)
+  params.require(:portfolio).permit(:title, :body, :picture, :icon, :likes, :year, :month, :link_href, :link_name)
 end
