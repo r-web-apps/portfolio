@@ -28,6 +28,8 @@ gem 'semantic-ui-sass'
 # https://github.com/heartcombo/devise
 gem 'devise'
 
+gem 'carrierwave'
+gem 'mini_magick'
 
 
 # Use Active Storage variant
