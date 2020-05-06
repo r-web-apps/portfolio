@@ -1,0 +1,11 @@
+<h1>Portfolio item page</h1>
+
+Name: <%= @portfolio.title %>
+Icon: <%= image_tag @portfolio.icon.url, height: 30 if @portfolio.icon? %>
+Cover: <%= image_tag @portfolio.picture.url, height: 100 if @portfolio.picture? %>
+Body: <%= @portfolio.body %>
+
+<% if user_signed_in? %>
+  <%= link_to 'Edit', edit_portfolio_path(@portfolio), method: :get, class: 'ui fluid button orange' %>
+  <%= link_to 'Delete', @portfolio, method: :delete, class: 'ui fluid button red' %>
+<% end %>

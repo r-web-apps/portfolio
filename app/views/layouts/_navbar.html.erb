@@ -4,8 +4,8 @@
   </div>
   <a class="item"></a>
   <% if user_signed_in? %>
-    <div class="right red ui menu inverted">
-      <%= link_to 'Logout', destroy_user_session_path, class: 'item', method: :delete %>
+    <div class="right menu">
+      <%= link_to 'Logout', destroy_user_session_path, class: 'item active red', method: :delete %>
     </div>
   <% end %>
 </div>

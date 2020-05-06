@@ -1,0 +1,36 @@
+<h1>New Portfolio item</h1>
+
+<%= form_for @portfolio, html: {multipart: true} do |f| %>
+  <div class="ui form">
+    <div class="two fields">
+      <div class="field">
+        <%= f.label :title %>
+        <%= f.text_field :title, placeholder: 'Title' %>
+      </div>
+      <div class="field two fields">
+        <div class="field">
+          <%= f.label :year %>
+          <%= f.number_field :year, placeholder: 'Year' %>
+        </div>
+        <div class="field">
+          <%= f.label :month %>
+          <%= f.number_field :month, placeholder: 'Month' %>
+        </div>
+      </div>
+    </div>
+    <div class="field">
+      <%= f.label :body, 'Content' %>
+      <%= f.text_area :body %>
+    </div>
+    <div class="field">
+      <label>Icon image</label>
+      <%= f.file_field :icon, accept: 'image/jpeg,image/png', class: 'field' %>
+    </div>
+    <div class="field">
+      <label>Cover image</label>
+      <%= f.file_field :picture, accept: 'image/jpeg,image/png', class: 'field' %>
+    </div>
+
+    <%= f.submit class: 'ui button positive fluid' %>
+  </div>
+<% end %>

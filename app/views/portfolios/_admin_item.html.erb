@@ -1,0 +1,12 @@
+<div class="ui raised card">
+  <div class="extra content">
+    Admin Panel
+  </div>
+  <div class="content">
+    <%= link_to 'Create new Portfolio item', new_portfolio_path, class: 'ui fluid positive button' %>
+  </div>
+  <div class="extra content">
+    <h3>Last comments</h3>
+    <%= render 'comments/last_comments' %>
+  </div>
+</div>

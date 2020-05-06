@@ -1,0 +1,6 @@
+<div class="ui three stackable cards">
+  <%= render 'portfolios/admin_item' if user_signed_in? %>
+  <% @portfolio_list.each do |portfolio| %>
+    <%= render 'portfolios/portfolio_item', portfolio: portfolio %>
+  <% end %>
+</div>

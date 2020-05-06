@@ -17,9 +17,5 @@ require("semantic-ui-sass")
 // const imagePath = (name) => images(name, true)
 
 $(document).ready(function () {
-// using context
-    $('.context.example .ui.sidebar')
-        .sidebar({
-            context: $('.context.example .bottom.segment')
-        }).sidebar('attach events', '.context.example .menu .item');
+    $('.ui.dropdown').dropdown();
 });
