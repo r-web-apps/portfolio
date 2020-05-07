@@ -23,8 +23,8 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# https://github.com/doabit/semantic-ui-sass
-gem 'semantic-ui-sass'
+# https://github.com/fomantic/Fomantic-UI-SASS
+gem 'fomantic-ui-sass'
 # https://github.com/heartcombo/devise
 gem 'devise'
 

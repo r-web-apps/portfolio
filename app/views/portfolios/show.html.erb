@@ -17,6 +17,16 @@
 </div>
 
 <div class="ui <%= 'bottom' unless user_signed_in? %> attached segment">
+  <div class="ui slider" id="slider-1"></div>
+  <div class="ui selection dropdown">
+    <input type="hidden" name="gender">
+    <i class="dropdown icon"></i>
+    <div class="default text">Gender</div>
+    <div class="menu">
+      <div class="item" data-value="1">Male</div>
+      <div class="item" data-value="0">Female</div>
+    </div>
+  </div>
   <div class="content">
     <h2>Comments</h2>
     <%= render 'comments/feed', comments: @portfolio.comments %>
