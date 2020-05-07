@@ -2,6 +2,6 @@ class AdminController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    render plain: 'Test success'
+    redirect_to root_path
   end
 end

@@ -5,7 +5,7 @@
       </div>
       <div class="content">
         <div class="summary">
-          <span style="color: orange;">Joe Henderson</span> commented
+          <span style="color: orange;">Someone</span> commented
           <div class="date">
             3 days ago
           </div>
@@ -19,7 +19,7 @@
   <%= form_for @comment do |f| %>
     <div class="ui action input fluid">
       <%= f.text_field :body, placeholder: "Enter your comment", type: 'text' %>
-      <%= f.button "Send", class: 'ui button orange' %>
+      <%= f.button ("Send" + icon('far', 'paper-plane', style: 'padding-left: 0.5rem;')).html_safe, class: 'ui button orange' %>
       <%= f.hidden_field :portfolio_id %>
     </div>
   <% end %>

@@ -1,5 +1,5 @@
 class Portfolio < ApplicationRecord
-  has_many :comments
+  has_many :comments, dependent: :delete_all
   mount_uploader :picture, PortfolioPictureUploader
   mount_uploader :icon, PortfolioIconUploader
   validates :link_name, :link_href, presence: true, unless: :link_empty?

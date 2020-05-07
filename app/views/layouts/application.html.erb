@@ -12,8 +12,9 @@
 <body>
 <%= render 'layouts/navbar' %>
 <main class="ui container">
-  <%= semantic_flash %>
   <%= yield %>
 </main>
+<%= render 'layouts/footer' %>
+<%= r_flash %>
 </body>
 </html>

@@ -27,6 +27,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'fomantic-ui-sass'
 # https://github.com/heartcombo/devise
 gem 'devise'
+#gem 'font-awesome-rails'
+gem 'font-awesome-sass'
 
 gem 'carrierwave'
 gem 'mini_magick'

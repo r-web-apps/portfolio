@@ -1,8 +1,10 @@
 <div class="ui top fixed menu">
   <div>
-    <a class="item header" href="<%= root_path %>"><%= image_tag 'R.png', style: 'margin-right: 0.5em;' %> My Portfolio</a>
+    <a class="item header" href="<%= root_path %>"><%= image_tag 'R.png', style: 'margin-right: 0.5em;' %>
+      My Portfolio
+    </a>
   </div>
-  <a class="item"></a>
+  <a href="https://rubeen.one" class="item">Visit my website</a>
   <% if user_signed_in? %>
     <div class="right menu">
       <%= link_to 'Logout', destroy_user_session_path, class: 'item active red', method: :delete %>
