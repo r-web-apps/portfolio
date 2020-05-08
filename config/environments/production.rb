@@ -4,7 +4,7 @@ Rails.application.configure do
   # Code is not reloaded between requests.
   config.cache_classes = true
 
-  config.hosts << ENV['ALLOWED_HOST']
+  config.hosts << ENV['ALLOWED_HOST'].to_s
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
