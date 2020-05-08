@@ -19,6 +19,6 @@ RUN chmod +x /usr/src/app/bin/rails
 WORKDIR /usr/src/app/
 RUN bundle install
 RUN yarn install --ignore-scripts && yarn install
-RUN bundle exec rake assets:precompile
+RUN SECRET_KEY_BASE=dummy bundle exec rake assets:precompile
 EXPOSE 3000
 CMD rails db:migrate && rails s -b 0.0.0.0
