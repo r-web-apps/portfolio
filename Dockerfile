@@ -10,4 +10,4 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
 WORKDIR /usr/src/app/
 RUN bundle install && yarn install --ignore-scripts && yarn install
 EXPOSE 3000
-CMD rails db:migrate && rails s -b 0.0.0.0 #-e production
+CMD rails db:migrate && rails s -b 0.0.0.0 -e production
