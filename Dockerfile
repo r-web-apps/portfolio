@@ -18,6 +18,7 @@ RUN apt-get remove cmdtest && apt-get update -qq && apt-get install -y yarn && a
 RUN chmod +x /usr/src/app/bin/rails
 WORKDIR /usr/src/app/
 RUN bundle install
+RUN rails db:setup
 RUN yarn install --ignore-scripts && yarn install
 RUN SECRET_KEY_BASE=dummy bundle exec rake assets:precompile
 EXPOSE 3000
