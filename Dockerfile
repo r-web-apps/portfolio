@@ -9,7 +9,6 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
       && apt-get remove cmdtest && apt-get update && apt-get install -y yarn \
       && chmod +x /usr/src/app/bin/rails && apt-get clean
 WORKDIR /usr/src/app/
-RUN bundle install && yarn install --ignore-scripts && yarn install && bundle exec rake assets:precompile \
-    && rails db:setup
+RUN bundle install && yarn install --ignore-scripts && yarn install && bundle exec rake assets:precompile
 EXPOSE 3000
 CMD rails db:migrate && rails s -b 0.0.0.0
