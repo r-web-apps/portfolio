@@ -19,5 +19,7 @@ WORKDIR /usr/src/app/
 RUN bundle install
 RUN yarn install --ignore-scripts && yarn install
 RUN SECRET_KEY_BASE=$(rails secret) rails db:setup
+RUN SECRET_KEY_BASE=$(rails secret) bundle exec rake assets:precompile
+RUN ./bin/webpack
 EXPOSE 3000
-CMD bundle exec rake assets:precompile && rails db:migrate && rails s -b 0.0.0.0
+CMD rails db:migrate && rails s -b 0.0.0.0
