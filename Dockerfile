@@ -15,11 +15,10 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get remove cmdtest && apt-get update -qq && apt-get install -y yarn && apt-get clean
-RUN chmod +x /usr/src/app/bin/rails
 WORKDIR /usr/src/app/
 RUN bundle install
-RUN rails db:setup
 RUN yarn install --ignore-scripts && yarn install
-RUN SECRET_KEY_BASE=dummy bundle exec rake assets:precompile
+RUN SECRET_KEY_BASE=$(rails secret) rails db:setup
+RUN SECRET_KEY_BASE=$(rails secret) bundle exec rake assets:precompile
 EXPOSE 3000
 CMD rails db:migrate && rails s -b 0.0.0.0
