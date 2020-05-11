@@ -5,7 +5,9 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to portfolio
     else
-      render 'portfolios/new', id: portfolio.id
+      flash[:warning] = 'Please enter at least 5 symbols.' if @comment.body.length < 5
+      flash[:warning] = 'Please enter not more than 3000 symbols.' if @comment.body.length > 3000
+      redirect_to portfolio
     end
   end
 
