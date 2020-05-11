@@ -4,3 +4,11 @@
     <%= render 'portfolios/portfolio_item', portfolio: portfolio %>
   <% end %>
 </div>
+
+<div style="margin-top: 5em" class="ui">
+  <nav class="ui content pagination menu">
+    <%= link_to_prev_page @portfolio_list, '<div>Previous page</div>'.html_safe, class: 'item text aligned center' %>
+    <%= link_to_next_page @portfolio_list, '<div>Next page</div>'.html_safe, class: 'item text aligned center' %>
+  </nav>
+
+</div>

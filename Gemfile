@@ -31,6 +31,9 @@ gem 'font-awesome-sass'
 gem 'carrierwave'
 gem 'mini_magick'
 
+#https://github.com/kaminari/kaminari
+gem 'kaminari'
+
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
