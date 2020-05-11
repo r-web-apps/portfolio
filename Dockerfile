@@ -25,5 +25,6 @@ RUN ./bin/webpack
 
 EXPOSE 3000
 VOLUME 'db-data'
+VOLUME 'public'
 
 CMD rails db:migrate && rails s -b 0.0.0.0
