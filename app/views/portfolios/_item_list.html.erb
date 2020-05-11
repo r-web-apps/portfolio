@@ -5,10 +5,16 @@
   <% end %>
 </div>
 
+<% unless @portfolio_list.total_pages <= 1 %>
 <div style="margin-top: 5em" class="ui">
-  <nav class="ui content pagination menu">
-    <%= link_to_prev_page @portfolio_list, '<div>Previous page</div>'.html_safe, class: 'item text aligned center' %>
-    <%= link_to_next_page @portfolio_list, '<div>Next page</div>'.html_safe, class: 'item text aligned center' %>
-  </nav>
-
+      <nav class="ui content pagination menu">
+        <% if @portfolio_list.prev_page %>
+        <%=  link_to_prev_page @portfolio_list, '<div>Previous page </div>'.html_safe, class: 'item text aligned center'  %>
+        <%  end  %>
+        <%  if @portfolio_list.next_page  %>
+        <%=  link_to_next_page @portfolio_list, '<div>Next page</div > '.html_safe, class: 'item text aligned center '  %>
+        <%  end  %>
+      </nav>
 </div>
+<%  end %>
+

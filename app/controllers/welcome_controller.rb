@@ -6,7 +6,7 @@ class WelcomeController < ApplicationController
     else
       per = 9
     end
-    @portfolio_list = Portfolio.order('year DESC, month DESC').page(page).per(per).without_count
+    @portfolio_list = Portfolio.order('year DESC, month DESC').page(page).per(per)
     @comments = Comment.order('created_at').limit(10).reverse
   end
 end
