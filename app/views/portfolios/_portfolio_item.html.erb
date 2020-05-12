@@ -4,14 +4,18 @@
       <div class="right floated meta">
         <%= portfolio.date %>
       </div>
-      <%= image_tag portfolio.icon.url, class: 'ui avatar image' if portfolio.icon? %>
-      <h2 class="no-link header">
-        <%= portfolio.title %>
+      <h2 class="ui no-link header">
+        <%= image_tag portfolio.icon.url, style: 'height: 1em; width: auto;', class: 'ui avatar image' if portfolio.icon? %>
+        <div class="content">
+          <%= portfolio.title %>
+        </div>
       </h2>
     </div>
-    <div class="image">
-      <%= image_tag portfolio.picture.url if portfolio.picture? %>
-    </div>
+    <% if portfolio.picture? %>
+      <div class="image">
+        <%= image_tag portfolio.picture.url if portfolio.picture? %>
+      </div>
+    <% end %>
     <div class="content no-link">
       <%= portfolio.body.truncate_words(20) %>
     </div>
